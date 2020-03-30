@@ -96,7 +96,7 @@ public class Sudoku {
      * @param k
      * @throws IOException
      */
-    public static void shuDu_solution(int k,int m) throws IOException {
+    public static void solution(int k,int m) throws IOException {
         if (k == (m*m)) {
             String src= outputFilename;
             try{
@@ -121,12 +121,12 @@ public class Sudoku {
             for (int i = 1; i <= m; i++) {
                 shuDu[x][y] = i;
                 if (legal(shuDu,x, y, i,m)) {
-                    shuDu_solution(k + 1,m);
+                    solution(k + 1,m);
                 }
             }
             shuDu[x][y] = 0;
         } else {
-            shuDu_solution(k + 1,m);
+            solution(k + 1,m);
         }
     }
     public static void loadArgs(String args[]){
@@ -176,7 +176,7 @@ public class Sudoku {
                 if(i==m){
                     if(n!=0){
                         setShuDu(generateShuDu);
-                        shuDu_solution(0,m);
+                        solution(0,m);
                         n--;
                         i=0;j=0;
                     }
